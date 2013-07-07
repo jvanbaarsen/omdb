@@ -25,7 +25,8 @@ module Omdb
 	end
 
 	class Movie
-		attr_accessor :loaded, :title, :year, :imdb_id, :type
+		attr_accessor :loaded, :title, :year, :rated, :released, :runtime, :genre, :director, :writer, :actors, :plot,
+									:poster, :imdb_rating, :imdb_votes, :imdb_id, :type
 		def initialize(movie)
 			@loaded = false # Default the details are not loaded
 			@title = movie["Title"]	

@@ -37,6 +37,17 @@ describe 'Omdb::Movie' do
 	describe "attributes" do
 		it {should respond_to(:title)}
 		it {should respond_to(:year)}
+		it {should respond_to(:rated)}
+		it {should respond_to(:released)}
+		it {should respond_to(:runtime)}
+		it {should respond_to(:genre)}
+		it {should respond_to(:director)}
+		it {should respond_to(:writer)}
+		it {should respond_to(:actors)}
+		it {should respond_to(:plot)}
+		it {should respond_to(:poster)}
+		it {should respond_to(:imdb_rating)}
+		it {should respond_to(:imdb_votes)}
 		it {should respond_to(:imdb_id)}
 		it {should respond_to(:type)}
 	end
