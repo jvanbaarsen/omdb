@@ -1,5 +1,5 @@
 require "omdb/version"
-require 'RestClient'
+require 'rest_client'
 require 'Json'
 
 module Omdb
