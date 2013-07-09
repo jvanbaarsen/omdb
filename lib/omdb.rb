@@ -1,6 +1,6 @@
 require "omdb/version"
 require 'rest_client'
-require 'Json'
+require 'json'
 
 module Omdb
 	class API
