@@ -1,6 +1,6 @@
 # Omdb
 [![Code Climate](https://codeclimate.com/repos/51dc6afbc7f3a37a72002061/badges/c245beb7b5f063dc7e94/gpa.png)](https://codeclimate.com/repos/51dc6afbc7f3a37a72002061/feed)
-
+[![Build Status](https://travis-ci.org/jvanbaarsen/omdb.png?branch=master)](https://travis-ci.org/jvanbaarsen/omdb)
 TODO: Write a gem description
 
 ## Installation
