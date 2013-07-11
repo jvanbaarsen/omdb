@@ -10,15 +10,15 @@ describe 'Omdb::API' do
 	context "When searching for 'Star Wars'" do
 		let(:response) {subject.search("Star Wars")}	
 	
-		it "should respond to a search call" do
+		it "responds to a search call" do
 			omdb_api.should respond_to(:search).with(1).argument
 		end
 
-		it "should return status code 200" do
+		it "returnr status code 200" do
 			response[:status].should eq(200)		
 		end
 
-		it "should return a total of 10 items" do
+		it "returns a total of 10 items" do
 			response[:movies].size.should eq(10)	
 		end
 
@@ -35,21 +35,65 @@ describe 'Omdb::Movie' do
 		movie.should be_instance_of(Omdb::Movie)
 	end
 	describe "attributes" do
-		it {should respond_to(:title)}
-		it {should respond_to(:year)}
-		it {should respond_to(:rated)}
-		it {should respond_to(:released)}
-		it {should respond_to(:runtime)}
-		it {should respond_to(:genre)}
-		it {should respond_to(:director)}
-		it {should respond_to(:writer)}
-		it {should respond_to(:actors)}
-		it {should respond_to(:plot)}
-		it {should respond_to(:poster)}
-		it {should respond_to(:imdb_rating)}
-		it {should respond_to(:imdb_votes)}
-		it {should respond_to(:imdb_id)}
-		it {should respond_to(:type)}
+		it '#title' do
+		  expect(subject).to respond_to :title
+		end
+		
+		it '#year' do
+		  expect(subject).to respond_to :year
+		end
+
+		it '#rated' do
+		  expect(subject).to respond_to :rated
+		end
+	
+		it '#released' do
+		  expect(subject).to respond_to :released
+		end
+
+		it '#runtime' do
+		  expect(subject).to respond_to :runtime		  
+		end
+
+		it '#genre' do
+		  expect(subject).to respond_to :genre
+		end
+	
+		it '#director' do
+		  expect(subject).to respond_to :director		  
+		end
+
+		it '#writer' do
+		  expect(subject).to respond_to :writer		  
+		end
+
+		it '#actors' do
+		  expect(subject).to respond_to :actors		  
+		end
+
+		it '#plot' do
+		  expect(subject).to respond_to :plot		  
+		end
+
+		it '#poster' do
+		  expect(subject).to respond_to :poster		  
+		end
+
+		it '#imdb_rating' do
+		  expect(subject).to respond_to :imdb_rating
+		end
+
+		it '#imdb_votes' do
+		  expect(subject).to respond_to :imdb_votes		  
+		end
+
+		it '#imdb_id' do
+		  expect(subject).to respond_to :imdb_id		  
+		end
+
+		it '#type' do
+		  expect(subject).to respond_to :type		  
+		end
 	end
 	
 	context "Unloaded situation" do
