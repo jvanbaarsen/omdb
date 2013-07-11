@@ -34,77 +34,19 @@ describe 'Omdb::Movie' do
 		movie = Omdb::Movie.new(JSON.parse('{"Title":"Star Wars","Year":"1977","imdbID":"tt0076759","Type":"movie"}'))
 		movie.should be_instance_of(Omdb::Movie)
 	end
-	describe "attributes" do
-		it '#title' do
-		  expect(subject).to respond_to :title
-		end
-		
-		it '#year' do
-		  expect(subject).to respond_to :year
-		end
-
-		it '#rated' do
-		  expect(subject).to respond_to :rated
-		end
 	
-		it '#released' do
-		  expect(subject).to respond_to :released
-		end
-
-		it '#runtime' do
-		  expect(subject).to respond_to :runtime		  
-		end
-
-		it '#genre' do
-		  expect(subject).to respond_to :genre
-		end
-	
-		it '#director' do
-		  expect(subject).to respond_to :director		  
-		end
-
-		it '#writer' do
-		  expect(subject).to respond_to :writer		  
-		end
-
-		it '#actors' do
-		  expect(subject).to respond_to :actors		  
-		end
-
-		it '#plot' do
-		  expect(subject).to respond_to :plot		  
-		end
-
-		it '#poster' do
-		  expect(subject).to respond_to :poster		  
-		end
-
-		it '#imdb_rating' do
-		  expect(subject).to respond_to :imdb_rating
-		end
-
-		it '#imdb_votes' do
-		  expect(subject).to respond_to :imdb_votes		  
-		end
-
-		it '#imdb_id' do
-		  expect(subject).to respond_to :imdb_id		  
-		end
-
-		it '#type' do
-		  expect(subject).to respond_to :type		  
-		end
-	end
-	
-	context "Unloaded situation" do
-		it "should have status loaded false" do
-			subject.loaded.should be_false
-		end
-		describe "the values should be" do
+	context "With the basic information loaded" do
+		describe 'the values' do
 			its(:title) {should eq("Star Wars")}
 			its(:year) {should eq(1977)}
 			its(:imdb_id) {should eq('tt0076759')}
 			its(:type) {should eq('movie')}
+		end
+	end
+
+	context "Unloaded situation" do
+		it "should have status loaded false" do
+			subject.loaded.should be_false
 		end
 	end
 end
