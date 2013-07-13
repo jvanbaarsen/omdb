@@ -1,4 +1,5 @@
 require 'omdb'
+require 'spec_helper'
 
 describe 'Omdb::Api' do
   it "Should return a instance of OMDB::API" do
@@ -27,6 +28,10 @@ describe 'Omdb::Api' do
   end
 
   def do_movie_search(movie_name)
+    omdb_return_data = '{"Search":[{"Title":"Star Wars","Year":"1977","imdbID":"tt0076759","Type":"movie"},{"Title":"Star Wars: Episode V - The Empire Strikes Back","Year":"1980","imdbID":"tt0080684","Type":"movie"},{"Title":"Star Wars: Episode VI - Return of the Jedi","Year":"1983","imdbID":"tt0086190","Type":"movie"},{"Title":"Star Wars: Episode I - The Phantom Menace","Year":"1999","imdbID":"tt0120915","Type":"movie"},{"Title":"Star Wars: Episode III - Revenge of the Sith","Year":"2005","imdbID":"tt0121766","Type":"movie"},{"Title":"Star Wars: Episode II - Attack of the Clones","Year":"2002","imdbID":"tt0121765","Type":"movie"},{"Title":"Star Wars: The Clone Wars","Year":"2008","imdbID":"tt1185834","Type":"movie"},{"Title":"Star Wars: Clone Wars","Year":"2003","imdbID":"tt0361243","Type":"series"},{"Title":"Star Wars: The Clone Wars","Year":"2008","imdbID":"tt0458290","Type":"series"},{"Title":"The Star Wars Holiday Special","Year":"1978","imdbID":"tt0193524","Type":"movie"}]}'
+    stub_request(:any, "http://www.omdbapi.com").
+      with({query: {"s" => movie_name}}).
+      to_return(:body => omdb_return_data, :code => 200 )
     Omdb::Api.new.search(movie_name)
   end
 end

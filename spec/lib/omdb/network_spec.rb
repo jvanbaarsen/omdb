@@ -9,12 +9,14 @@ describe Omdb::Network do
 
   describe "#call" do
     it "returns a hash when called" do
+      WebMock.allow_net_connect!
       network = Omdb::Network.new.call({s: "Star Wars"})
       expect(network).to be_a(Hash)
     end
 
     context 'When called with {t: "Star Wars"} as params' do
       it 'returns value contains "Star Wars"' do
+        WebMock.allow_net_connect!
         response = Omdb::Network.new.call({t: "Star Wars"})
         expect(response[:data]).to include(
           {"Title"=> "Star Wars"}
@@ -24,6 +26,7 @@ describe Omdb::Network do
 
     context 'When called with {s: "Star Wars"{ as params' do
       it 'returns value contains "Star Wars: The Clone Wars"' do
+        WebMock.allow_net_connect!
         response = Omdb::Network.new.call({s: "Star Wars"})
         expect(response[:data]["Search"].last).to include (
           {"Title" => "The Star Wars Holiday Special"}
