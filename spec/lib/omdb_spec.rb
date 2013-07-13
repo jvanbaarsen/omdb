@@ -1,30 +1,33 @@
 require 'omdb'
 
-describe 'Omdb::API' do
-  subject {Omdb::API.new}
-  let(:omdb_api) {Omdb::API.new}
+describe 'Omdb::Api' do
   it "Should return a instance of OMDB::API" do
-    omdb_api.should be_instance_of(Omdb::API)
+    Omdb::Api.new.should be_instance_of(Omdb::Api)
   end
 
   context "When searching for 'Star Wars'" do
-    let(:response) {subject.search("Star Wars")}
-
     it "responds to a search call" do
-      omdb_api.should respond_to(:search).with(1).argument
+      Omdb::Api.new.should respond_to(:search).with(1).argument
     end
 
-    it "returnr status code 200" do
+    it "return status code 200" do
+      response = do_movie_search("Star Wars")
       response[:status].should eq(200)
     end
 
     it "returns a total of 10 items" do
+      response = do_movie_search("Star Wars")
       response[:movies].size.should eq(10)
     end
 
     it "returned list movies should be of the type Omdb::Movie" do
+      response = do_movie_search("Star Wars")
       response[:movies][0].should be_instance_of(Omdb::Movie)
     end
+  end
+
+  def do_movie_search(movie_name)
+    Omdb::Api.new.search(movie_name)
   end
 end
 

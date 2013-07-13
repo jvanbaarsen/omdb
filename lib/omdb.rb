@@ -1,21 +1,22 @@
 require "omdb/version"
+require 'omdb/network'
 require 'rest_client'
 require 'json'
 
 module Omdb
-  class API
+  class Api
     def search(search_term)
-      res = RestClient.get 'http://www.omdbapi.com', {params: {s: search_term, r: 'json'}}
+      res = Omdb::Network.new.call({s: search_term})
 
       response = {
-        :movies => parse_movies(res.body),
-        :status => res.code
+        :movies => parse_movies(res[:data]),
+        :status => res[:code]
       }
     end
 
     private
     def parse_movies(json_string)
-      data = JSON.parse(json_string)["Search"]
+      data = json_string["Search"]
       movies = Array.new
       data.each do |movie|
         movies.push(Movie.new(movie))
