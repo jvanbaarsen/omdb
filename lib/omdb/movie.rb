@@ -4,15 +4,18 @@ module Omdb
                 :poster, :imdb_rating, :imdb_votes, :imdb_id, :type
 
     def initialize(movie)
-      @loaded = false # Default the details are not loaded
       @title = movie["Title"]
       @year = movie["Year"].to_i
       @imdb_id = movie["imdbID"]
       @type = movie["Type"]
-    end
-
-    def fetch_details
-      @loaded = true
+      @rated = movie["Rated"]
+      @released = movie["Released"]
+      @runtime = movie["Runtime"]
+      @genre = movie["Genre"]
+      @director = movie["Director"]
+      @writer = movie["Writer"]
+      @actors = movie["Actors"]
+      @plot = movie["Plot"]
     end
   end
 end
