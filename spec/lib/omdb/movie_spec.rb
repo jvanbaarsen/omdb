@@ -45,6 +45,14 @@ describe 'Omdb::Movie' do
     end
   end
 
+  context "Fetched situation" do
+    it "loaded status hould be true" do
+      movie = create_movie_object('{}')
+      movie.fetch_details
+      movie.loaded.should be_true
+    end
+  end
+
   def create_movie_object(json_data)
     Omdb::Movie.new(JSON.parse(json_data))
   end
