@@ -24,12 +24,39 @@ describe 'Omdb::Api' do
     end
   end
 
+  describe "Searching for a single movie" do
+    context "When searching for an existing movie" do
+      it "responds to a fetch call" do
+        expect(Omdb::Api.new).to respond_to(:fetch).with(1).argument
+      end
+
+
+      describe "the return object" do
+        it "has status code 200" do
+          expect(movie_fetch[:status]).to eq(200)
+        end
+
+        it "has a movie object" do
+          expect(movie_fetch[:movie]).to be_a(Omdb::Movie)
+        end
+
+        it "has a director called 'George Lucas'" do
+          expect(movie_fetch[:movie].director).to eq("George Lucas")
+        end
+      end
+    end
+  end
+
   def do_movie_search
     omdb_return_data = File.read(File.join("spec", "fixtures", "movies_search.json"))
-    stub_request(:any, "http://www.omdbapi.com").
-      with({query: {"s" => "Star Wars"}}).
-      to_return(:body => omdb_return_data, :code => 200 )
+    stub_request(:any, /.*www.omdbapi.com.*/).to_return(:body => omdb_return_data, :code => 200 )
     Omdb::Api.new.search("Star Wars")
+  end
+
+  def movie_fetch
+    omdb_return_data = File.read(File.join("spec", "fixtures", "star_wars.json"))
+    stub_request(:any, /.*www.omdbapi.com.*/).to_return(body: omdb_return_data, code: 200)
+    Omdb::Api.new.fetch("Star Wars")
   end
 end
 
