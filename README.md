@@ -1,6 +1,7 @@
 # Omdb
 [![Code Climate](https://codeclimate.com/repos/51dc6afbc7f3a37a72002061/badges/c245beb7b5f063dc7e94/gpa.png)](https://codeclimate.com/repos/51dc6afbc7f3a37a72002061/feed)
 [![Build Status](https://travis-ci.org/jvanbaarsen/omdb.png?branch=master)](https://travis-ci.org/jvanbaarsen/omdb)
+
 TODO: Write a gem description
 
 ## Installation
@@ -19,7 +20,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Finding movies
+
+    Omdb::Api.new.search('MOVIE NAME')
+
+This will return an hash with movies
+
+### Fetching movie
+To fetch a single movie (when you know the full name):
+
+    Omdb::Api.new.fetch('MOVIE NAME')
+
+This will return a Omdb::Movie object with the following properties:
+
+    :loaded, :title, :year, :rated, :released, :runtime, :genre, :director, :writer, :actors, :plot,
+    :poster, :imdb_rating, :imdb_votes, :imdb_id, :type
 
 ## Contributing
 
