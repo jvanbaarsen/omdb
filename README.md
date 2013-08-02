@@ -4,6 +4,8 @@
 
 This gem is an easy way to access the OMDB Api (http://www.omdbapi.com)
 
+See: https://gist.github.com/jvanbaarsen/6142607 for an example
+
 ## Installation
 
 Add this line to your application's Gemfile:
