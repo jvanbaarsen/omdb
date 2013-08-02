@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Omdb::VERSION
   spec.authors       = ["Jeroen van Baarsen"]
   spec.email         = ["jeroen@logiconline.nl"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Easy gateway to the OMDB Api}
+  spec.summary       = %q{Easy gateway to the OMDB Api}
+  spec.homepage      = "http://github.com/jvanbaarsen/omdb"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
