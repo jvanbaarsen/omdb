@@ -5,13 +5,16 @@ module Omdb
     def search(search_term)
       res = network.call({s: search_term})
       response = Hash.new
-      if res["response"] == "false"
+      if res[:data]["Response"] == "False"
+        response = {
+          :movies => {},
+          :status => 404
+        }
+      else
         response = {
           :movies => parse_movies(res[:data]),
           :status => res[:code]
         }
-      else
-        response = {:status => 404}
       end
     end
 
