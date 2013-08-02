@@ -30,7 +30,6 @@ describe 'Omdb::Api' do
         expect(Omdb::Api.new).to respond_to(:fetch).with(1).argument
       end
 
-
       describe "the return object" do
         it "has status code 200" do
           expect(movie_fetch[:status]).to eq(200)
@@ -47,10 +46,26 @@ describe 'Omdb::Api' do
     end
   end
 
+  describe 'Searching for a movie, with no results' do
+    it 'returns status code 404' do
+      expect(no_results_search[:status]).to eq(404)
+    end
+
+    it 'returns an empty movie hash' do
+      expect(no_results_search[:movies].size).to eq(0)
+    end
+  end
+
   def do_movie_search
     omdb_return_data = File.read(File.join("spec", "fixtures", "movies_search.json"))
     stub_request(:any, /.*www.omdbapi.com.*/).to_return(:body => omdb_return_data, :code => 200 )
     Omdb::Api.new.search("Star Wars")
+  end
+
+  def no_results_search
+    omdb_return_data = File.read(File.join("spec", "fixtures", "no_results.json"))
+    stub_request(:any, /.*www.omdbapi.com.*/).to_return(:body => omdb_return_data, :code => 200)
+    Omdb::Api.new.search("Search term")
   end
 
   def movie_fetch

@@ -4,11 +4,15 @@ module Omdb
   class Api
     def search(search_term)
       res = network.call({s: search_term})
-
-      response = {
-        :movies => parse_movies(res[:data]),
-        :status => res[:code]
-      }
+      response = Hash.new
+      if res["response"] == "false"
+        response = {
+          :movies => parse_movies(res[:data]),
+          :status => res[:code]
+        }
+      else
+        response = {:status => 404}
+      end
     end
 
     def fetch(title, year = nil)
