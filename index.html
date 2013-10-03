@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Omdb by jvanbaarsen</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/jvanbaarsen/omdb">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Omdb</h1>
+            <h2>Easy access to the OMDB Api</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/jvanbaarsen/omdb/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/jvanbaarsen/omdb/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a name="omdb" class="anchor" href="#omdb"><span class="octicon octicon-link"></span></a>Omdb</h1>
+
+<p><a href="https://codeclimate.com/repos/51dc6afbc7f3a37a72002061/feed"><img src="https://codeclimate.com/repos/51dc6afbc7f3a37a72002061/badges/c245beb7b5f063dc7e94/gpa.png" alt="Code Climate"></a>
+<a href="https://travis-ci.org/jvanbaarsen/omdb"><img src="https://travis-ci.org/jvanbaarsen/omdb.png?branch=master" alt="Build Status"></a></p>
+
+<p>This gem is an easy way to access the OMDB Api (<a href="http://www.omdbapi.com">http://www.omdbapi.com</a>)</p>
+
+<p>See: <a href="https://gist.github.com/jvanbaarsen/6142607">https://gist.github.com/jvanbaarsen/6142607</a> for an example</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<pre><code>gem 'omdb'
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code>$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre><code>$ gem install omdb
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a name="finding-movies" class="anchor" href="#finding-movies"><span class="octicon octicon-link"></span></a>Finding movies</h3>
+
+<pre><code>Omdb::Api.new.search('MOVIE NAME')
+</code></pre>
+
+<p>This will return an hash with movies</p>
+
+<h3>
+<a name="fetching-movie" class="anchor" href="#fetching-movie"><span class="octicon octicon-link"></span></a>Fetching movie</h3>
+
+<p>To fetch a single movie (when you know the full name):</p>
+
+<pre><code>Omdb::Api.new.fetch('MOVIE NAME')
+</code></pre>
+
+<p>This will return a Omdb::Movie object with the following properties:</p>
+
+<pre><code>:loaded, :title, :year, :rated, :released, :runtime, :genre, :director, :writer, :actors, :plot,
+:poster, :imdb_rating, :imdb_votes, :imdb_id, :type
+</code></pre>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/jvanbaarsen">jvanbaarsen</a> can be found on <a href="https://github.com/jvanbaarsen/omdb">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
