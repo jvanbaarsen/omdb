@@ -16,6 +16,7 @@ module Omdb
       @writer = movie["Writer"]
       @actors = movie["Actors"]
       @plot = movie["Plot"]
+      @poster = movie["Poster"]
     end
   end
 end

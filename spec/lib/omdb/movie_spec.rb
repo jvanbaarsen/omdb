@@ -91,6 +91,13 @@ describe 'Omdb::Movie' do
         expect(movie.type).to eq('movie')
       end
     end
+
+    describe '#poster' do
+      it 'returns the poster' do
+        movie = create_movie_object('{"Poster":"poster_url"}')
+        expect(movie.poster).to eq('poster_url')
+      end
+    end
   end
 
   def create_movie_object(json_data)
