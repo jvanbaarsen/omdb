@@ -32,6 +32,7 @@ This will return an hash with movies
 To fetch a single movie (when you know the full name):
 
     Omdb::Api.new.fetch('MOVIE NAME')
+    Omdb::Api.new.fetch('MOVIE NAME', YEAR (Optional))
 
 This will return a Omdb::Movie object with the following properties:
 
