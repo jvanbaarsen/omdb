@@ -37,7 +37,7 @@ To fetch a single movie (when you know the full name):
 This will return a Omdb::Movie object with the following properties:
 
     :loaded, :title, :year, :rated, :released, :runtime, :genre, :director, :writer, :actors, :plot,
-    :poster, :imdb_rating, :imdb_votes, :imdb_id, :type
+    :poster, :imdb_rating, :imdb_votes, :imdb_id, :type, :metascore, :language, :country, :awards
 
 ## Contributing
 

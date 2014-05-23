@@ -1,7 +1,7 @@
 module Omdb
   class Movie
     attr_reader :loaded, :title, :year, :rated, :released, :runtime, :genre, :director, :writer, :actors, :plot,
-                :poster, :imdb_rating, :imdb_votes, :imdb_id, :type
+                :poster, :imdb_rating, :imdb_votes, :imdb_id, :type, :metascore, :language, :country, :awards
 
     def initialize(movie)
       @title = movie["Title"]
@@ -17,6 +17,10 @@ module Omdb
       @actors = movie["Actors"]
       @plot = movie["Plot"]
       @poster = movie["Poster"]
+      @metascore = movie["Metascore"]
+      @language = movie["Language"]
+      @country = movie["Country"]
+      @awards = movie["Awards"]
     end
   end
 end
