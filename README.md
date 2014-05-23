@@ -1,5 +1,5 @@
 # Omdb
-[![Code Climate](https://codeclimate.com/repos/51dc6afbc7f3a37a72002061/badges/c245beb7b5f063dc7e94/gpa.png)](https://codeclimate.com/repos/51dc6afbc7f3a37a72002061/feed)
+[![Code Climate](https://codeclimate.com/github/jvanbaarsen/omdb.png)](https://codeclimate.com/github/jvanbaarsen/omdb)
 [![Build Status](https://travis-ci.org/jvanbaarsen/omdb.png?branch=master)](https://travis-ci.org/jvanbaarsen/omdb)
 
 This gem is an easy way to access the OMDB Api (http://www.omdbapi.com)
