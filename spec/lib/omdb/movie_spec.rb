@@ -98,6 +98,34 @@ describe 'Omdb::Movie' do
         expect(movie.poster).to eq('poster_url')
       end
     end
+
+    describe '#metascore' do
+      it 'returns the metascore' do
+        movie = create_movie_object('{"Metascore":"100"}')
+        expect(movie.metascore).to eq('100')
+      end
+    end
+
+    describe '#language' do
+      it 'returns the language' do
+        movie = create_movie_object('{"Language":"en"}')
+        expect(movie.language).to eq('en')
+      end
+    end
+
+    describe '#country' do
+      it 'returns the country' do
+        movie = create_movie_object('{"Country":"USA"}')
+        expect(movie.country).to eq('USA')
+      end
+    end
+
+    describe '#awards' do
+      it 'returns the awards' do
+        movie = create_movie_object('{"Awards":"6 Oscars"}')
+        expect(movie.awards).to eq('6 Oscars')
+      end
+    end
   end
 
   def create_movie_object(json_data)
