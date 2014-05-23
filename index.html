@@ -49,7 +49,7 @@
         <h1>
 <a name="omdb" class="anchor" href="#omdb"><span class="octicon octicon-link"></span></a>Omdb</h1>
 
-<p><a href="https://codeclimate.com/repos/51dc6afbc7f3a37a72002061/feed"><img src="https://codeclimate.com/repos/51dc6afbc7f3a37a72002061/badges/c245beb7b5f063dc7e94/gpa.png" alt="Code Climate"></a>
+<p><a href="https://codeclimate.com/github/jvanbaarsen/omdb"><img src="https://codeclimate.com/github/jvanbaarsen/omdb.png" alt="Code Climate"></a>
 <a href="https://travis-ci.org/jvanbaarsen/omdb"><img src="https://travis-ci.org/jvanbaarsen/omdb.png?branch=master" alt="Build Status"></a></p>
 
 <p>This gem is an easy way to access the OMDB Api (<a href="http://www.omdbapi.com">http://www.omdbapi.com</a>)</p>
@@ -91,12 +91,13 @@
 <p>To fetch a single movie (when you know the full name):</p>
 
 <pre><code>Omdb::Api.new.fetch('MOVIE NAME')
+Omdb::Api.new.fetch('MOVIE NAME', YEAR (Optional))
 </code></pre>
 
 <p>This will return a Omdb::Movie object with the following properties:</p>
 
 <pre><code>:loaded, :title, :year, :rated, :released, :runtime, :genre, :director, :writer, :actors, :plot,
-:poster, :imdb_rating, :imdb_votes, :imdb_id, :type
+:poster, :imdb_rating, :imdb_votes, :imdb_id, :type, :metascore, :language, :country, :awards
 </code></pre>
 
 <h2>
