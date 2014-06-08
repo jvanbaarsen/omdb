@@ -26,7 +26,7 @@ Or install it yourself as:
 
     Omdb::Api.new.search('MOVIE NAME')
 
-This will return an hash with movies
+This will return a hash with movies
 
 ### Fetching movie
 To fetch a single movie (when you know the full name):
@@ -34,7 +34,7 @@ To fetch a single movie (when you know the full name):
     Omdb::Api.new.fetch('MOVIE NAME')
     Omdb::Api.new.fetch('MOVIE NAME', YEAR (Optional))
 
-This will return a Omdb::Movie object with the following properties:
+This will return an Omdb::Movie object with the following properties:
 
     :loaded, :title, :year, :rated, :released, :runtime, :genre, :director, :writer, :actors, :plot,
     :poster, :imdb_rating, :imdb_votes, :imdb_id, :type, :metascore, :language, :country, :awards
