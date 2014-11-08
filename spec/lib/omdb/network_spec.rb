@@ -15,12 +15,12 @@ describe Omdb::Network do
     context 'When called with {t: "Star Wars"} as params' do
       it 'returns value contains "Star Wars"' do
         expect(fetch_movie[:data]).to include(
-          {"Title"=> "Star Wars"}
+          {"Title" => "Star Wars"}
         )
       end
     end
 
-    context 'When called with {s: "Star Wars"{ as params' do
+    context 'When called with {s: "Star Wars"} as params' do
       it 'returns value contains "Star Wars: The Clone Wars"' do
         expect(search_movie[:data]["Search"].last).to include (
           {"Title" => "The Star Wars Holiday Special"}
