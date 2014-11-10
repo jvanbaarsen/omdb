@@ -20,7 +20,7 @@ describe Omdb::Network do
       end
     end
 
-    context 'When called with {s: "Star Wars"{ as params' do
+    context 'When called with {s: "Star Wars"} as params' do
       it 'returns value contains "Star Wars: The Clone Wars"' do
         expect(search_movie[:data]["Search"].last).to include (
           {"Title" => "The Star Wars Holiday Special"}
