@@ -21,6 +21,7 @@ module Omdb
       @language = movie["Language"]
       @country = movie["Country"]
       @awards = movie["Awards"]
+	  @imdb_rating = movie["imdbRating"]
     end
   end
 end
