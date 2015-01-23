@@ -130,7 +130,7 @@ describe 'Omdb::Movie' do
     describe '#imdb_rating' do
       it 'returns the imdb rating' do
         movie = create_movie_object('{"imdbRating":"8.7"}')
-        expect(movie.imdb_rating).to eq(8,7)
+        expect(movie.imdb_rating).to eq("8.7")
       end
     end
   end
