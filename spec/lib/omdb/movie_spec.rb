@@ -10,8 +10,8 @@ describe 'Omdb::Movie' do
   context "With the basic information loaded" do
     describe '#title' do
       it 'returns the title' do
-        movie = create_movie_object('{"Title":"Star Wars"}')
-        expect(movie.title).to eq('Star Wars')
+        movie = create_movie_object('{"Title":"Star Wars: Episode IV - A New Hope"}')
+        expect(movie.title).to eq('Star Wars: Episode IV - A New Hope')
       end
     end
 
@@ -38,15 +38,15 @@ describe 'Omdb::Movie' do
 
     describe '#runtime' do
       it 'returns the runtime' do
-        movie = create_movie_object('{"Runtime":"2 h 1 min"}')
-        expect(movie.runtime).to eq('2 h 1 min')
+        movie = create_movie_object('{"Runtime":"121 min"}')
+        expect(movie.runtime).to eq('121 min')
       end
     end
 
     describe '#genre' do
       it 'returns the genre' do
-        movie = create_movie_object('{"Genre":"Action, Adventure"}')
-        expect(movie.genre).to eq("Action, Adventure")
+        movie = create_movie_object('{"Genre":"Action, Adventure, Fantasy"}')
+        expect(movie.genre).to eq('Action, Adventure, Fantasy')
       end
     end
 
@@ -66,8 +66,8 @@ describe 'Omdb::Movie' do
 
     describe '#actors' do
       it 'returns the actors' do
-        movie = create_movie_object('{"Actors":"Mark Hamill, Harrison Ford"}')
-        expect(movie.actors).to eq('Mark Hamill, Harrison Ford')
+        movie = create_movie_object('{"Actors":"Mark Hamill, Harrison Ford, Carrie Fisher, Peter Cushing"}')
+        expect(movie.actors).to eq('Mark Hamill, Harrison Ford, Carrie Fisher, Peter Cushing')
       end
     end
 
@@ -101,15 +101,15 @@ describe 'Omdb::Movie' do
 
     describe '#metascore' do
       it 'returns the metascore' do
-        movie = create_movie_object('{"Metascore":"100"}')
-        expect(movie.metascore).to eq('100')
+        movie = create_movie_object('{"Metascore":"91"}')
+        expect(movie.metascore).to eq('91')
       end
     end
 
     describe '#language' do
       it 'returns the language' do
-        movie = create_movie_object('{"Language":"en"}')
-        expect(movie.language).to eq('en')
+        movie = create_movie_object('{"Language":"English"}')
+        expect(movie.language).to eq('English')
       end
     end
 
@@ -122,8 +122,15 @@ describe 'Omdb::Movie' do
 
     describe '#awards' do
       it 'returns the awards' do
-        movie = create_movie_object('{"Awards":"6 Oscars"}')
-        expect(movie.awards).to eq('6 Oscars')
+        movie = create_movie_object('{"Awards":"Won 6 Oscars. Another 38 wins & 26 nominations."}')
+        expect(movie.awards).to eq('Won 6 Oscars. Another 38 wins & 26 nominations.')
+      end
+    end
+	
+    describe '#imdb_rating' do
+      it 'returns the imdb rating' do
+        movie = create_movie_object('{"imdbRating":"8.7"}')
+        expect(movie.imdb_rating).to eq('8.7')
       end
     end
   end
