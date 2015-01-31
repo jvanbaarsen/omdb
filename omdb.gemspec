@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "omdb"
   spec.version       = Omdb::VERSION
   spec.authors       = ["Jeroen van Baarsen"]
-  spec.email         = ["jeroen@logiconline.nl"]
+  spec.email         = ["jeroenvanbaarsen@gmail.com"]
   spec.description   = %q{Easy gateway to the OMDB Api}
   spec.summary       = %q{Easy gateway to the OMDB Api}
   spec.homepage      = "http://github.com/jvanbaarsen/omdb"
