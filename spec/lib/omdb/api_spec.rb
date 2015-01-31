@@ -64,25 +64,25 @@ describe 'Omdb::Api' do
 
   def do_movie_search
     omdb_return_data = File.read(File.join("spec", "fixtures", "movies_search.json"))
-    stub_request(:any, /.*www.omdbapi.com.*/).to_return(:body => omdb_return_data, :code => 200 )
+    stub_request(:any, /.*www.omdbapi.com.*/).to_return(body: omdb_return_data, status: 200 )
     Omdb::Api.new.search("Star Wars")
   end
 
   def no_result_search
     omdb_return_data = File.read(File.join("spec", "fixtures", "no_results.json"))
-    stub_request(:any, /.*www.omdbapi.com.*/).to_return(:body => omdb_return_data, :code => 200)
+    stub_request(:any, /.*www.omdbapi.com.*/).to_return(body: omdb_return_data, status: 200)
     Omdb::Api.new.search("Search term")
   end
 
   def movie_fetch
     omdb_return_data = File.read(File.join("spec", "fixtures", "star_wars.json"))
-    stub_request(:any, /.*www.omdbapi.com.*/).to_return(body: omdb_return_data, code: 200)
+    stub_request(:any, /.*www.omdbapi.com.*/).to_return(body: omdb_return_data, status: 200)
     Omdb::Api.new.fetch("Star Wars")
   end
 
   def no_result_fetch
     omdb_return_data = File.read(File.join("spec", "fixtures", "no_results.json"))
-    stub_request(:any, /.*www.omdbapi.com.*/).to_return(:body => omdb_return_data, :code => 200)
+    stub_request(:any, /.*www.omdbapi.com.*/).to_return(body: omdb_return_data, status: 200)
     Omdb::Api.new.fetch("Search term")
   end
 end
