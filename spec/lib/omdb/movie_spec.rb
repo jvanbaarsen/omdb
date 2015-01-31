@@ -84,6 +84,13 @@ describe 'Omdb::Movie' do
         expect(movie.imdb_id).to eq("tt0076759")
       end
     end
+	
+	describe '#imdb_rating' do
+      it 'returns the IMDB rating' do
+        movie = create_movie_object('{"imdbRating":"8.7"}')
+        expect(movie.imdb_rating).to eq('8.7')
+      end
+    end
 
     describe '#type' do
       it 'returns the type' do
