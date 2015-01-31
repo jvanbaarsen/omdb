@@ -16,9 +16,13 @@ module Omdb
         }
       end
     end
-
-    def fetch(title, year = nil)
-      res = network.call({t: title, year: nil})
+    
+    # fetchs a movie with a given title
+    # set tomatoes to true if you want to get the rotten tomatoes ranking
+    # set plot to full if you want to have the full, long plot
+    def fetch(title, year = "", tomatoes = false, plot = "short")
+      res = network.call({t: title, y: year, tomatoes: tomatoes, plot: plot})
+      
       if res[:data]["Response"] == "False"
         response = {:status => 404}
       else
