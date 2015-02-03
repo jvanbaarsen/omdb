@@ -32,6 +32,22 @@ module Omdb
         }
       end
     end
+    
+    # fetches a movie by IMDB id
+    # set tomatoes to true if you want to get the rotten tomatoes ranking
+    # set plot to full if you want to have the full, long plot
+    def find(id, tomatoes = false, plot = "short")
+      res = network.call({i: id, tomatoes: tomatoes, plot: plot})
+      
+      if res[:data]["Response"] == "False"
+        response = {:status => 404}
+      else
+        response = {
+          status: res[:code],
+          movie: parse_movie(res[:data])
+        }
+      end
+    end
 
     private
     def parse_movies(json_string)
