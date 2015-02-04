@@ -62,6 +62,22 @@ describe 'Omdb::Api' do
     end
   end
 
+  describe 'Finding a movie by IMDB ID' do
+    context "When searching for 'Star Wars' by ID" do
+      it "has status code 200" do
+        expect(movie_fetch[:status]).to eq(200)
+      end
+
+      it "has a movie object" do
+        expect(movie_fetch[:movie]).to be_a(Omdb::Movie)
+      end
+
+      it "has a title 'Star Wars'" do
+        expect(movie_find[:movie].title).to eq("Star Wars")
+      end
+    end
+  end
+
   def do_movie_search
     omdb_return_data = File.read(File.join("spec", "fixtures", "movies_search.json"))
     stub_request(:any, /.*www.omdbapi.com.*/).to_return(body: omdb_return_data, status: 200 )
@@ -84,6 +100,12 @@ describe 'Omdb::Api' do
     omdb_return_data = File.read(File.join("spec", "fixtures", "no_results.json"))
     stub_request(:any, /.*www.omdbapi.com.*/).to_return(body: omdb_return_data, status: 200)
     Omdb::Api.new.fetch("Search term")
+  end
+
+  def movie_find
+    omdb_return_data = File.read(File.join("spec", "fixtures", "star_wars.json"))
+    stub_request(:any, /.*www.omdbapi.com.*/).to_return(body: omdb_return_data, status: 200)
+    Omdb::Api.new.find("tt0076759")
   end
 end
 
