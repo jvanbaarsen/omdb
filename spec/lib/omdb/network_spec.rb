@@ -28,6 +28,14 @@ describe Omdb::Network do
       end
     end
 
+    context 'When called with {i: "tt0076759"} as params' do
+      it 'returns value contains "Star Wars"' do
+        expect(find_movie[:data]).to include(
+          {"Title" => "Star Wars"}
+        )
+      end
+    end
+
     def search_movie
       omdb_return_data = File.read(File.join("spec", "fixtures", "movies_search.json"))
       stub_request(:any, "http://www.omdbapi.com").
@@ -42,6 +50,14 @@ describe Omdb::Network do
         with({query: {"t" => "Star Wars"}}).
         to_return(body: omdb_return_data, status: 200 )
       Omdb::Network.new.call({t: "Star Wars"})
+    end
+
+    def find_movie
+      omdb_return_data = File.read(File.join("spec", "fixtures", "star_wars.json"))
+      stub_request(:any, "http://www.omdbapi.com").
+        with({query: {"i" => "tt0076759"}}).
+        to_return(body: omdb_return_data, status: 200 )
+      Omdb::Network.new.call({i: "tt0076759"})
     end
   end
 end
