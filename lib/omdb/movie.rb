@@ -43,4 +43,3 @@ module Omdb
     end
   end
 end
-
