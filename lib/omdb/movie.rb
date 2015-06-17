@@ -4,7 +4,7 @@ module Omdb
       :director, :writer, :actors, :plot, :poster, :imdb_rating, :imdb_votes,
       :imdb_id, :type, :metascore, :language, :country, :awards, :imdb_rating,
       :imdb_votes, :tomato_meter, :tomato_rating, :tomato_reviews, :tomato_fresh,
-      :tomato_rotten, :tomato_consensus, :tomat_user_meter, :tomato_user_rating,
+      :tomato_rotten, :tomato_consensus, :tomato_user_meter, :tomato_user_rating,
       :tomato_user_reviews, :dvd, :box_office, :production, :website
 
     def initialize(movie)
