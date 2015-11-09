@@ -1,3 +1,7 @@
+# ATTENTION
+
+THIS GEM IS NO LONGER MAINTAINED. WANT TO TAKE OVER? LET ME KNOW!
+
 # Omdb
 [![Code Climate](https://codeclimate.com/github/jvanbaarsen/omdb.png)](https://codeclimate.com/github/jvanbaarsen/omdb)
 [![Build Status](https://travis-ci.org/jvanbaarsen/omdb.png?branch=master)](https://travis-ci.org/jvanbaarsen/omdb)
