@@ -1,3 +1,4 @@
+![Retired](https://img.shields.io/badge/maintenance-retired-red.svg)
 # ATTENTION
 
 THIS GEM IS NO LONGER MAINTAINED. WANT TO TAKE OVER? LET ME KNOW!
