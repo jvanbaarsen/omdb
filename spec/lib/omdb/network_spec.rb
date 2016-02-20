@@ -38,7 +38,7 @@ describe Omdb::Network do
 
     def search_movie
       omdb_return_data = File.read(File.join("spec", "fixtures", "movies_search.json"))
-      stub_request(:any, "http://www.omdbapi.com").
+      stub_request(:any, "https://www.omdbapi.com").
         with({query: {"s" => "Star Wars"}}).
         to_return(body: omdb_return_data, status: 200 )
       Omdb::Network.new.call({s: "Star Wars"})
@@ -46,7 +46,7 @@ describe Omdb::Network do
 
     def fetch_movie
       omdb_return_data = File.read(File.join("spec", "fixtures", "star_wars.json"))
-      stub_request(:any, "http://www.omdbapi.com").
+      stub_request(:any, "https://www.omdbapi.com").
         with({query: {"t" => "Star Wars"}}).
         to_return(body: omdb_return_data, status: 200 )
       Omdb::Network.new.call({t: "Star Wars"})
@@ -54,7 +54,7 @@ describe Omdb::Network do
 
     def find_movie
       omdb_return_data = File.read(File.join("spec", "fixtures", "star_wars.json"))
-      stub_request(:any, "http://www.omdbapi.com").
+      stub_request(:any, "https://www.omdbapi.com").
         with({query: {"i" => "tt0076759"}}).
         to_return(body: omdb_return_data, status: 200 )
       Omdb::Network.new.call({i: "tt0076759"})
